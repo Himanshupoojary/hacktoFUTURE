@@ -9,8 +9,10 @@
             margin: 0;
             padding: 0;
             background-color: #000;
-            overflow-y: auto;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
+
         .stars {
             position: fixed;
             top: 0;
@@ -19,16 +21,19 @@
             height: 100%;
             z-index: -1;
         }
+
         .star {
             position: absolute;
             background: #fff;
             border-radius: 50%;
-            animation: twinkle 0.05 infinite;
+            animation: twinkle 0.05s infinite;
         }
+
         @keyframes twinkle {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
+
         .star:nth-child(1) { top: 20%; left: 20%; width: 2px; height: 2px; animation-duration: 5s; }
         .star:nth-child(2) { top: 60%; left: 80%; width: 3px; height: 3px; animation-duration: 7s; }
         .star:nth-child(3) { top: 40%; left: 50%; width: 2px; height: 2px; animation-duration: 6s; }
@@ -39,8 +44,9 @@
         .star:nth-child(8) { top: 80%; left: 20%; width: 2px; height: 2px; animation-duration: 5s; }
         .star:nth-child(9) { top: 45%; left: 65%; width: 3px; height: 3px; animation-duration: 7s; }
         .star:nth-child(10) { top: 15%; left: 85%; width: 2px; height: 2px; animation-duration: 6s; }
+
         .moon {
-            position: fixed;
+            position: absolute;
             top: 70%;
             left: 80%;
             width: 100px;
@@ -49,17 +55,54 @@
             border-radius: 50%;
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
         }
+
         .content {
             position: absolute;
             top: 50%;
-            left: 40%;
+            left: 50%;
             transform: translate(-50%, -50%);
             color: #fff;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             z-index: 1;
         }
-        </style>
+
+        section {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: deepskyblue;
+            cursor: pointer;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: cornflowerblue;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            color: cornflowerblue;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
     <div class="stars">
@@ -76,44 +119,37 @@
     </div>
     <div class="moon"></div>
     <div class="content">
-        <h2 style="color:deepskyblue;">Team</h2>
-            <p>We are a team of enthusiastic students from NMAM Institute of Technology (NMAMIT), participating in this hackathon with passion and dedication</p>
+        <h2>Team</h2>
+        <p>We are a team of enthusiastic students from NMAM Institute of Technology (NMAMIT), participating in this hackathon with passion and dedication</p>
         <section>
-            <h2 style="color:deepskyblue;">Goal</h2>
+            <h2>Goal</h2>
             <p>We are working on a Student collaboration Space which helps students to connect and share their experiences and also share documents and notes.</p>
         </section>
         <section>
-            <h2 style="color:deepskyblue;">Our Team</h2>
+            <h2>Our Team</h2>
             <div class="hithesh">
                 <div>
-                    <h3 style="color:cornflowerblue;">Hithesh Hg</h3>
+                    <h3>Hithesh Hg</h3>
                     <p>Team Lead</p>
                 </div>
             </div>
             <div class="himanshu">
                 <div>
-                    <h3 style="color:cornflowerblue;">Himanshu Poojary</h3>
+                    <h3>Himanshu Poojary</h3>
                     <p>Backend Developer</p>
                 </div>
             </div>
             <div class="prakyath">
                 <div>
-                    <h3 style="color:cornflowerblue;">Prakyath Ashok Shetty</h3>
+                    <h3>Prakyath Ashok Shetty</h3>
                     <p>Frontend Developer</p>
                 </div>
             </div>
         </section>
         <section>
-            <h2 style="color:deepskyblue;">What We Do</h2>
+            <h2>What We Do</h2>
             <p>We will use the basics of HTML,CSS and JS and create a website based on the above goal.</p>
         </section>
-        <section>
-            <h2 style="color:deepskyblue;">Get in Touch</h2>
-            <p>We encorage you yo get in touc with us as we are studying in NMAMIT we will exchange our experiences and we can attempt more hackathons like these in the upcoming days</p>
-        </section>
-        <footer style="color:cornflowerblue;">
-            &copy;Bits And Bytes
-        </footer>
-    </div>
+    </di>
 </body>
 </html>
