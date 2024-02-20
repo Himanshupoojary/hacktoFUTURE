@@ -123,7 +123,7 @@ passport.serializeUser((user, done) => {
 
 app.get('/',(req,res)=>{
   if (req.session.email){
-    res.render('index2.ejs',{loggedin:true})
+    res.render('index2.ejs  ',{loggedin:true})
     
   }
   else{  
