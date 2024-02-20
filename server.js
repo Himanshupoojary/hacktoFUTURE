@@ -12,10 +12,10 @@ import multer from "multer";
 import passport from "passport";
 import { Strategy as LocalStrategy } from 'passport-local';
 import { link } from "fs";
-import User from './models/user.js';
-import Message from './models/Message.js';
-import indexRoutes from './routes/index.js';
-import authRoutes from './routes/auth.js';
+// import User from './models/user.js';
+// import Message from './models/Message.js';
+// import indexRoutes from './routes/index.js';
+// import authRoutes from './routes/auth.js';
 // import connectMongoDBSession from "connect-mongodb-session";
 
 // Destructure the named export
@@ -52,8 +52,8 @@ app.use(session({
 
 
 
-app.use('/', indexRoutes);
-app.use('/auth', authRoutes);
+// app.use('/', indexRoutes);
+// app.use('/auth', authRoutes);
 
 
 
