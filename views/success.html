@@ -3,16 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-      rel="shortcut icon"
-      href="https://th.bing.com/th/id/OIP.kwE8IapDUTtylieeRnn2YAHaHa?pid=ImgDet&rs=1"
-      type="image/x-icon"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Successful</title>
-  </head>
-  <body
-  >
     <style>
       /* Apply glassmorphism effect to the container */
       .container {
@@ -45,10 +35,97 @@
         text-decoration: none;
       }
     </style>
-    <div class="container">
+    <style>
+      /* Apply glassmorphism effect to the container */
+      .container {
+        background: rgba(255, 255, 255, 0.823); /* Set a semi-transparent white background */
+        backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+        border-radius:15px; /* Rounded corners */
+        padding: 30px;
+        text-align: center;
+      }
+
+      /* Center the container vertically and horizontally */
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Ensure full viewport height */
+        background-color: rgb(233, 233, 233);
+      }
+      button{
+        background-color: rgb(50, 50, 202);
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
+
+        height: 30px;
+        width: 70px;
+        
+      }
+      .hidden{
+        display: none;
+      }
+      button a {
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Successful</title>
+  </head>
+  <body>
       <h1>Registration Successful</h1>
-      <p>Thank you for registering.</p>
-      <button class="active"><a href="/login"> Login </a></button>
-    </div>
+      <br><br>
+      <br><br>
+      <br><br>
+    
+      <form id="roleForm">
+        <label for="role"><span  style="font-size: 1.3rem;">Choose a role:</span></label>
+        <select id="role" name="role">
+          <option value="senior">Senior</option>
+          <option value="junior">Junior</option>
+        </select>
+        <br><br>
+        
+      </form>
+      
+      <form id="seniorForm" class="hidden">
+        <!-- Senior form fields go here -->
+        <label for="seniorField">Senior Field:</label>
+        <input type="text" id="seniorField" name="seniorField">
+      </form>
+      
+      <form id="juniorForm" class="hidden">
+        <!-- Junior form fields go here -->
+        <label for="juniorField">Which domain interests you ?</label>
+        
+      <select id="cars" name="cars">
+        <option value="volvo">Cybersecurity</option>
+        <option value="saab">Iot</option>
+        <option value="mercedes">Blockchain</option>
+        <option value="audi">Data Scienc</option>
+        <option value="saab">Machine Learning</option>
+        <option value="mercedes">Web developer</option>
+        <option value="audi">AI</option>
+      </select>
+      
+      <button > <input type="submit" value="Submit" style="background-color: transparent;border: none;"></button></form>
+      <script>
+        const roleSelect = document.getElementById('role');
+        const seniorForm = document.getElementById('seniorForm');
+        const juniorForm = document.getElementById('juniorForm');
+      
+        roleSelect.addEventListener('change', function() {
+          if (roleSelect.value === 'senior') {
+            seniorForm.classList.remove('hidden');
+            juniorForm.classList.add('hidden');
+          } else if (roleSelect.value === 'junior') {
+            seniorForm.classList.add('hidden');
+            juniorForm.classList.remove('hidden');
+          }
+        });
+      </script>
+
   </body>
 </html>
