@@ -51,6 +51,17 @@
             border-radius: 50%;
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
         }
+        .sun {
+    position: fixed;
+    top: 20%; /* Adjust the position as needed */
+    left: 10%; /* Adjust the position as needed */
+    width: 200px; /* Increase the size of the sun */
+    height: 200px; /* Increase the size of the sun */
+    background: radial-gradient(circle, #ffd700 30%, transparent 70%); /* Adjust the gradient */
+    border-radius: 50%;
+    box-shadow: 0 0 80px rgba(255, 255, 255, 0.5); /* Increase the shadow */
+    animation: rotateSun 20s linear infinite; /* Add animation for rotation */
+}
         nav {
             background-color: #333;
             padding: 10px 0;
@@ -84,6 +95,9 @@
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none " style="color: #fff !important ; font-size: 1.5rem !important;">STUDENT SPACE
               <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
             </a>
+          </div>
+          <div class="sun">
+            
           </div>
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
