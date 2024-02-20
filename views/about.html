@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Background</title>
+    <title>About</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: #000;
+            font-family: Arial, sans-serif;
             overflow-y: auto;
         }
         .stars {
@@ -23,7 +24,7 @@
             position: absolute;
             background: #fff;
             border-radius: 50%;
-            animation: twinkle 0.05 infinite;
+            animation: twinkle 0.05s infinite;
         }
         @keyframes twinkle {
             0%, 100% { opacity: 1; }
@@ -49,19 +50,67 @@
             border-radius: 50%;
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
         }
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 40%;
-            transform: translate(-50%, -50%);
+        .content-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             color: #fff;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2rem;
-            z-index: 1;
+            font-size: 1.5rem;
         }
-        </style>
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #29abe2;
+        }
+        .content-section p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+        }
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .team-member {
+            text-align: center;
+            width: 150px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .team-member:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #29abe2;
+        }
+        .team-member p {
+            font-size: 1rem;
+            color: #fff;
+            margin: 0;
+        }
+        .footer {
+            text-align: center;
+            color: #29abe2;
+            margin-top: 50px;
+            font-size: large;
+        }
+    </style>
 </head>
 <body>
+
+    
     <div class="stars">
         <div class="star"></div>
         <div class="star"></div>
@@ -74,46 +123,49 @@
         <div class="star"></div>
         <div class="star"></div>
     </div>
+
+
     <div class="moon"></div>
-    <div class="content">
-        <h2 style="color:deepskyblue;">Team</h2>
-            <p>We are a team of enthusiastic students from NMAM Institute of Technology (NMAMIT), participating in this hackathon with passion and dedication</p>
-        <section>
-            <h2 style="color:deepskyblue;">Goal</h2>
-            <p>We are working on a Student collaboration Space which helps students to connect and share their experiences and also share documents and notes.</p>
-        </section>
-        <section>
-            <h2 style="color:deepskyblue;">Our Team</h2>
-            <div class="hithesh">
-                <div>
-                    <h3 style="color:cornflowerblue;">Hithesh Hg</h3>
+
+    <div class="content-container">
+
+
+        <div class="content-section">
+            <h2>TEAM</h2>
+            <p>We are representing <span>Institute of Technology (NMAMIT)</span>, participating in this hackathon with passion and dedication.</p>
+        </div>
+
+
+        <div class="content-section">
+            <h2>MEMBERS</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <h3>Hithesh HG</h3>
                     <p>Team Lead</p>
                 </div>
-            </div>
-            <div class="himanshu">
-                <div>
-                    <h3 style="color:cornflowerblue;">Himanshu Poojary</h3>
+                <div class="team-member">
+                    <h3>Himanshu Poojary</h3>
                     <p>Backend Developer</p>
                 </div>
-            </div>
-            <div class="prakyath">
-                <div>
-                    <h3 style="color:cornflowerblue;">Prakyath Ashok Shetty</h3>
+                <div class="team-member">
+                    <h3>Prakyath Shetty</h3>
                     <p>Frontend Developer</p>
                 </div>
             </div>
-        </section>
-        <section>
-            <h2 style="color:deepskyblue;">What We Do</h2>
-            <p>We will use the basics of HTML,CSS and JS and create a website based on the above goal.</p>
-        </section>
-        <section>
-            <h2 style="color:deepskyblue;">Get in Touch</h2>
-            <p>We encorage you yo get in touc with us as we are studying in NMAMIT we will exchange our experiences and we can attempt more hackathons like these in the upcoming days</p>
-        </section>
-        <footer style="color:cornflowerblue;">
-            &copy;Bits And Bytes
+        </div>
+
+        <div class="content-section">
+            <h2>Goal</h2>
+            <p>We are working on a Student collaboration Space which helps students to connect and share their experiences and also share documents and notes.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>What We Do</h2>
+            <p>We will use the basics of HTML, CSS, and JS and create a website based on the above goal.</p>
+        </div>
+
+        <footer class="footer">
+            &copy;Bits and Bytes
         </footer>
-    </div>
-</body>
+    </body>
 </html>

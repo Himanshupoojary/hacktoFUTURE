@@ -124,11 +124,11 @@ passport.serializeUser((user, done) => {
 app.get('/',(req,res)=>{
   if (req.session.email){
     // res.render('index1.html',{loggedin:true})
-    res.sendFile(__dirname+"/views/index1.html")
+    res.render("index.ejs")
   }
   else{  
     // res.render('index.html',{loggedin:false}) } 
-    res.sendFile(__dirname+"/views/index1.html")
+    res.render("index.ejs")
 }})
 
 
