@@ -6,10 +6,50 @@
     <title>Normal Index Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+      body {
             margin: 0;
             padding: 0;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 0.05s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .star:nth-child(1) { top: 20%; left: 20%; width: 2px; height: 2px; animation-duration: 5s; }
+        .star:nth-child(2) { top: 60%; left: 80%; width: 3px; height: 3px; animation-duration: 7s; }
+        .star:nth-child(3) { top: 40%; left: 50%; width: 2px; height: 2px; animation-duration: 6s; }
+        .star:nth-child(4) { top: 70%; left: 30%; width: 3px; height: 3px; animation-duration: 8s; }
+        .star:nth-child(5) { top: 90%; left: 90%; width: 2px; height: 2px; animation-duration: 7s; }
+        .star:nth-child(6) { top: 25%; left: 75%; width: 2px; height: 2px; animation-duration: 8s; }
+        .star:nth-child(7) { top: 10%; left: 40%; width: 3px; height: 3px; animation-duration: 6s; }
+        .star:nth-child(8) { top: 80%; left: 20%; width: 2px; height: 2px; animation-duration: 5s; }
+        .star:nth-child(9) { top: 45%; left: 65%; width: 3px; height: 3px; animation-duration: 7s; }
+        .star:nth-child(10) { top: 15%; left: 85%; width: 2px; height: 2px; animation-duration: 6s; }
+        .moon {
+            position: fixed;
+            top: 70%;
+            left: 80%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #d3d3d3 0%, #a9a9a9 50%, #696969 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
         }
         nav {
             background-color: #333;
@@ -41,14 +81,14 @@
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
           <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">STUDENT SPACE
               <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
             </a>
           </div>
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2">Features</a></li>
+            <li><a href="/mentor" class="nav-link px-2">mentor match</a></li>
             <li><a href="#" class="nav-link px-2">Pricing</a></li>
             <li><a href="#" class="nav-link px-2">FAQs</a></li>
             <li><a href="#" class="nav-link px-2">About</a></li>
@@ -76,8 +116,19 @@
         </header>
       </div> 
     <div class="container">
-        <h1></h1>
-        <!-- Your content here -->
+      <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+     <div class="moon"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
