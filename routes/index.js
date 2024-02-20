@@ -1,7 +1,7 @@
 // routes/index.js
 
 import express from 'express';
-import { ensureAuthenticated } from '../middleware/auth.js';
+import { ensureAuthenticated } from './routes/auth.js';
 import Message from '../models/Message.js';
 
 const router = express.Router();
