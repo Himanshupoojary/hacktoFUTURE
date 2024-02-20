@@ -12,9 +12,10 @@ import multer from "multer";
 import passport from "passport";
 import { Strategy as LocalStrategy } from 'passport-local';
 import { link } from "fs";
-
-
-
+import User from './models/user.js';
+import Message from './models/Message.js';
+import indexRoutes from './routes/index.js';
+import authRoutes from './routes/auth.js';
 // import connectMongoDBSession from "connect-mongodb-session";
 
 // Destructure the named export
@@ -36,11 +37,6 @@ app.use(express.urlencoded({extended:true}))
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(express.json())
 
-// const monguri = `mongodb+srv://${username}:${password}@cluster0.suqnipw.mongodb.net/LoginRegDB`
-// const store = new MongoDBStore({
-//   uri: monguri,
-//   collection: 'sessions',
-// });
 
 app.use(session({ secret: 'halwaaaabhengan102001200120001', resave: true, saveUninitialized: true }));
 app.set('view engine', 'ejs');
@@ -55,18 +51,12 @@ app.use(session({
 
 
 
-// const store = new RedisStore({
-//   host: 'localhost',
-//   port: 6379,
-//   // Add additional options if needed
-// });
 
-// app.use(session({
-//   secret: 'halwaaaabhengan102001200120001',
-//   resave: false,
-//   saveUninitialized: true,
-//   store, // In ES6, you can directly use the variable name as a shorthand
-// }));
+app.use('/', indexRoutes);
+app.use('/auth', authRoutes);
+
+
+
 
 
 
@@ -76,12 +66,11 @@ app.use(session({
 // Middleware to check if the user is logged in
 const requireLogin = (req, res, next) => {
     if (req.session.email) {
-      // User is logged in, proceed to the next middleware or route handler
+
       next();
     } else {
-      // User is not logged in, redirect to the login page or send an unauthorized response
-      res.redirect('/login'); // You can replace '/login' with the path to your login page
-      // Alternatively, you can send an unauthorized response like res.status(401).send('Unauthorized');
+
+      res.redirect('/login'); 
     }
   };
   //passport config
@@ -123,7 +112,7 @@ passport.serializeUser((user, done) => {
 
 app.get('/',(req,res)=>{
   if (req.session.email){
-    res.render('index2.ejs',{loggedin:true})
+    res.render('index2.ejs  ',{loggedin:true})
     
   }
   else{  
@@ -140,210 +129,6 @@ app.get("/addinfo",requireLogin,(req,res)=>{
 })
 
 
-
-//skills inner scehma
-const skillSchema = new Schema({
-  skill_name: String,
-  skill_info: String
-});
-
-//projects inner schema
-const projectSchema = new Schema({
-  project_name: String,
-  project_info: String
-});
-
-//experience innner schema
-const expSchema = new Schema({
-  exp_name: String,
-  exp_info: String
-});
-
-
-const BasicSchema = new Schema({
-    email:{
-      type: String,
-      required: true,
-
-    },
-    title: {
-        type: String,
-        required: true,
-    },
-    name: {
-        type: String,
-        required: true,
-    },
-    about: {
-        type: String,
-        required: true,
-    },
-    image: {
-        data: Buffer,
-        contentType: String
-    },
-    skills:{
-        skill1:skillSchema,
-        skill2:skillSchema,
-        skill3:skillSchema,
-        skill4:skillSchema,
-        skill5:skillSchema,
-        skill6:skillSchema
-    },
-    projects:{
-        proj_1:projectSchema,
-        proj_2:projectSchema,
-        proj_3:projectSchema,
-        proj_4:projectSchema,
-        proj_5:projectSchema,
-        proj_6:projectSchema
-    },
-    experience:{
-        exp_1:expSchema,
-        exp_2:expSchema,
-        exp_3:expSchema,
-        exp_4:expSchema,
-        exp_5:expSchema,
-        exp_6:expSchema
-    },
-    links:{
-      ilink:String,
-      llink:String,
-      xlink:String,
-      flink:String,
-      glink:String
-
-    }
-
-    
-})
-const Basic = mongoose.model("Data_STORAGE",BasicSchema)
-
-app.post("/addbasic", upload.single('image'), async (req, res) => {
-    // var email=sessionStorage.getItem('useremail')
-    console.log(req.body);
-    const email=req.session.email
-    const { title, name, about,skill1_name,skill1_info,
-      skill2_name,skill2_info,
-      skill3_name,skill3_info,
-      skill4_name,skill4_info,
-      skill5_name,skill5_info,
-      skill6_name,skill6_info,
-      project1_info,project1_name,
-      project2_info,project2_name,
-      project3_info,project3_name,
-      project4_info,project4_name,
-      project5_info,project5_name,
-      project6_info,project6_name,
-      exp1_name,exp1_info,
-      exp2_name,exp2_info, 
-      exp3_name,exp3_info,
-      exp4_name,exp4_info,
-      exp5_name,exp5_info,
-      exp6_name,exp6_info
-      ,ilink,xlink,flink,llink,glink} = req.body;
-      
-     
-
-
-    const imageBuffer = req.file.buffer;
-
- const userinfo = new Basic({
-        email:email,
-        name: name,
-        title: title,
-        about: about,
-        image: { data: imageBuffer, contentType: req.file.mimetype},
-        skills: {
-          skill1: {
-              skill_name: skill1_name,
-              skill_info: skill1_info
-          },
-          skill2: {
-            skill_name: skill2_name,
-            skill_info: skill2_info
-          },
-          skill3: {
-            skill_name: skill3_name,
-            skill_info: skill3_info
-          },
-          skill4: {
-            skill_name: skill4_name,
-            skill_info: skill4_info
-          },
-          skill5: {
-            skill_name: skill5_name,
-            skill_info: skill5_info
-          },
-          skill6: {
-            skill_name: skill6_name,
-            skill_info: skill6_info
-          }},
-        projects:
-        {
-          proj_1: {
-              project_name: project1_name,
-              project_info: project1_info
-          },
-          proj_2: {
-              project_name: project2_name,
-              project_info: project2_info
-          },
-          proj_3: {
-              project_name: project3_name,
-              project_info: project3_info
-          },
-          proj_4: {
-              project_name: project4_name,
-              project_info: project4_info
-          },
-          proj_5: {
-              project_name: project5_name,
-              project_info: project5_info
-          },
-          proj_6: {
-              project_name: project6_name,
-              project_info: project6_info
-          }},
-        experience:{
-          exp_1: {
-              exp_name: exp1_name,
-              exp_info: exp1_info
-          },
-          exp_2: {
-              exp_name: exp2_name,
-              exp_info: exp2_info
-          },
-          exp_3: {
-              exp_name: exp3_name,
-              exp_info: exp3_info
-          },
-          exp_4: {
-              exp_name: exp4_name,
-              exp_info: exp4_info
-          },
-          exp_5: {
-              exp_name: exp5_name,
-              exp_info: exp5_info
-          },
-          exp_6: {
-              exp_name: exp6_name,
-              exp_info: exp6_info
-          }},
-          links:{
-            ilink:ilink,
-            flink:flink,
-            xlink:xlink,
-            llink:llink,
-            glink:glink
-          }
-    })
-
-
-    await userinfo.save()
-    res.redirect("/template")
-
-})
 
 
 app.get("/template",(req,res)=>{
