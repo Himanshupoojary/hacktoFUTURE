@@ -9,7 +9,7 @@
       body {
             margin: 0;
             padding: 0;
-            background-color: #020202;
+            background-color: #000;
             font-family: Arial, sans-serif;
             overflow-y: auto;
         }
@@ -52,15 +52,15 @@
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
         }
         .sun {
-    position: fixed;
-    top: 20%; /* Adjust the position as needed */
-    left: 10%; /* Adjust the position as needed */
-    width: 200px; /* Increase the size of the sun */
-    height: 200px; /* Increase the size of the sun */
-    background: radial-gradient(circle, #ffd700 30%, transparent 70%); /* Adjust the gradient */
-    border-radius: 50%;
-    box-shadow: 0 0 80px rgba(255, 255, 255, 0.5); /* Increase the shadow */
-    animation: rotateSun 20s linear infinite; /* Add animation for rotation */
+          position: fixed;
+          top: 20%; /* Adjust the position as needed */
+          left: 10%; /* Adjust the position as needed */
+          width: 200px; /* Increase the size of the sun */
+          height: 200px; /* Increase the size of the sun */
+          background: radial-gradient(circle, #ffd700 30%, transparent 70%); /* Adjust the gradient */
+          border-radius: 50%;
+          box-shadow: 0 0 80px rgba(255, 255, 255, 0.5); /* Increase the shadow */
+          animation: rotateSun 20s linear infinite; /* Add animation for rotation */
 }
         nav {
             background-color: #333;
@@ -86,12 +86,11 @@
         h1 {
             text-align: center;
         }
-        
     </style>
 </head>
 <body>
-  <div class="container navbar" style="background: rb;">
-        <header class="d-flex  align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
           <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none " style="color: #fff !important ; font-size: 1.5rem !important;">STUDENT SPACE
               <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
@@ -105,7 +104,7 @@
             <li><a href="#" class="nav-link px-2">HOME</a></li>
             <li><a href="/mentor" class="nav-link px-2">MENTOR</a></li>
             <li><a href="#" class="nav-link px-2">FAQs</a></li>
-            <li><a href="/about" class="nav-link px-2">ABOUT</a></li>
+            <li><a href="#" class="nav-link px-2">ABOUT</a></li>
           </ul>
           <% if (locals.loggedin) { %>
             <div class="dropdown text-end">
